@@ -1,6 +1,10 @@
 {
   "members": [
     {
+      "name": "驴哥",
+      "count": 1
+    },
+    {
       "name": "毛球",
       "count": 1
     },
@@ -18,6 +22,17 @@
     }
   ],
   "images": [
+    {
+      "id": "assets/驴哥/驴哥__驴哥三视图__001.jpg",
+      "owner": "驴哥",
+      "name": "驴哥三视图",
+      "sequence": "001",
+      "filename": "驴哥__驴哥三视图__001.jpg",
+      "path": "assets/驴哥/驴哥__驴哥三视图__001.jpg",
+      "url": "/assets/%E9%A9%B4%E5%93%A5/%E9%A9%B4%E5%93%A5__%E9%A9%B4%E5%93%A5%E4%B8%89%E8%A7%86%E5%9B%BE__001.jpg",
+      "format": "JPG",
+      "bytes": 38229
+    },
     {
       "id": "assets/毛球/毛球__毛球三视图__001.jpg",
       "owner": "毛球",
