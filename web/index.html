@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>图片资产库 · Image Asset Chart</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234c624b'/%3E%3Cpath d='M14 44l14-20 10 13 7-9 9 16z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到图片内容</a>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="图片资产库首页"><span class="brand-icon">▧</span><span>图片资产库<small>IMAGE ASSET CHART</small></span></a>
+    <div class="space-label">共享工作空间 <span>LOCAL</span></div>
+    <button class="nav-item active" id="all-members"><span>▦</span> 全部图片 <span class="count" id="all-count">0</span></button>
+    <div class="section-label">成员分册 <span id="member-count">0</span></div>
+    <nav id="members" aria-label="成员图片库"></nav>
+    <div class="sidebar-bottom"><span class="status-dot"></span> 本地图片，随时取用<p>每个人的灵感，都有自己的位置。</p></div>
+  </aside>
+  <main id="main">
+    <header class="topbar"><div>工作空间 <span>/</span> <strong id="breadcrumb">全部图片</strong></div><a href="/CATALOG.md" target="_blank" rel="noopener">查看总册 ↗</a></header>
+    <section class="intro"><div class="eyebrow">OUR SHARED COLLECTION</div><div class="title-row"><div><h1 id="page-title">所有人的图片，<br>收在一起。</h1><p id="page-description">按成员整理的共享图片资产，让每一次查找都有迹可循。</p></div><button id="guide-button" class="primary">＋ 如何添加图片</button></div></section>
+    <section class="collection" aria-label="图片浏览">
+      <div class="toolbar"><div class="view-tabs" role="group" aria-label="查看方式"><button id="grid-view" class="selected" aria-pressed="true">▦ 图片墙</button><button id="list-view" aria-pressed="false">☷ 资产总册</button></div><div class="tools"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索图片名称或成员…" aria-label="搜索图片名称或成员"></label><button id="refresh" title="重新读取图片目录">↻ <span>刷新图片</span></button></div></div>
+      <div class="results-line"><span id="result-count" aria-live="polite">正在读取图片…</span><label>排序 <select id="sort" aria-label="排序"><option value="name">名称 A → Z</option><option value="owner">按成员</option></select></label></div>
+      <div id="error" role="alert" hidden></div><div id="gallery" class="gallery"></div>
+      <div id="empty" class="empty" hidden><span>▧</span><h2>这里还没有图片</h2><p>换个关键词，或按入库说明添加第一张图片。</p></div>
+      <footer><span>IMAGE ASSET CHART</span><span>共同收藏 · 持续生长</span></footer>
+    </section>
+  </main>
+  <dialog id="preview" class="preview"><div class="dialog-top"><span id="preview-owner"></span><button id="close-preview" aria-label="关闭预览">✕</button></div><img id="preview-image" alt=""><div class="preview-info"><div><h2 id="preview-title"></h2><p id="preview-meta"></p><code id="preview-path"></code></div><div class="preview-actions"><button id="copy-path">复制路径</button><a id="download" download>下载原图 ↓</a></div></div></dialog>
+  <dialog id="guide" class="guide"><div class="dialog-top"><span>让新图片加入收藏</span><button id="close-guide" aria-label="关闭入库说明">✕</button></div><h2>放好图片，剩下的交给 Agent。</h2><ol><li><strong>首次使用，选择上传或先浏览</strong><p>Agent 会先询问是否上传。需要上传时，告诉它你的姓名，以及图片是否有指定名称；没有名称就让它看图命名。</p></li><li><strong>把图片放进收图文件夹</strong><p>Agent 会新建 incoming/你的名字/ 并给出完整路径。把图片放进去，告诉它“放好了”。已有图片路径或附件时可直接使用。</p></li><li><strong>Agent 继续入库并分享</strong><p>按“姓名__图片名称__001.png”命名，复制到个人分册，更新总册并打开网页，再接着提交上传；需要登录时会告诉你具体操作。</p></li></ol><div class="guide-prompt"><small>可以直接对 Agent 说</small><p>请阅读 AGENTS.md。我需要上传图片，我叫「你的名字」。请创建收图文件夹，告诉我放在哪里；图片放好后请看图命名、更新总册、启动网页并完成共享上传。</p></div><a href="/README.md" target="_blank" rel="noopener">阅读完整新手说明 ↗</a></dialog>
+</body>
+</html>

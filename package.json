@@ -1,0 +1,13 @@
+{
+  "name": "image-asset-chart",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "按成员整理、浏览和调用的共享图片资产库",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "catalog": "node scripts/catalog.mjs"
+  }
+}
