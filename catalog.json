@@ -1,6 +1,10 @@
 {
   "members": [
     {
+      "name": "老王",
+      "count": 1
+    },
+    {
       "name": "驴哥",
       "count": 1
     },
@@ -22,6 +26,17 @@
     }
   ],
   "images": [
+    {
+      "id": "assets/老王/老王__老王三视图__001.jpg",
+      "owner": "老王",
+      "name": "老王三视图",
+      "sequence": "001",
+      "filename": "老王__老王三视图__001.jpg",
+      "path": "assets/老王/老王__老王三视图__001.jpg",
+      "url": "/assets/%E8%80%81%E7%8E%8B/%E8%80%81%E7%8E%8B__%E8%80%81%E7%8E%8B%E4%B8%89%E8%A7%86%E5%9B%BE__001.jpg",
+      "format": "JPG",
+      "bytes": 643730
+    },
     {
       "id": "assets/驴哥/驴哥__驴哥三视图__001.jpg",
       "owner": "驴哥",
