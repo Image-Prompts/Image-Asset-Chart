@@ -1,6 +1,10 @@
 {
   "members": [
     {
+      "name": "毛球",
+      "count": 1
+    },
+    {
       "name": "小缪",
       "count": 1
     },
@@ -14,6 +18,17 @@
     }
   ],
   "images": [
+    {
+      "id": "assets/毛球/毛球__毛球三视图__001.jpg",
+      "owner": "毛球",
+      "name": "毛球三视图",
+      "sequence": "001",
+      "filename": "毛球__毛球三视图__001.jpg",
+      "path": "assets/毛球/毛球__毛球三视图__001.jpg",
+      "url": "/assets/%E6%AF%9B%E7%90%83/%E6%AF%9B%E7%90%83__%E6%AF%9B%E7%90%83%E4%B8%89%E8%A7%86%E5%9B%BE__001.jpg",
+      "format": "JPG",
+      "bytes": 173663
+    },
     {
       "id": "assets/小缪/小缪__蓝裙女性角色设定__001.png",
       "owner": "小缪",
