@@ -2,7 +2,7 @@
   "members": [
     {
       "name": "老王",
-      "count": 1
+      "count": 4
     },
     {
       "name": "驴哥",
@@ -27,6 +27,17 @@
   ],
   "images": [
     {
+      "id": "assets/老王/老王__白袍羽扇谋士__001.png",
+      "owner": "老王",
+      "name": "白袍羽扇谋士",
+      "sequence": "001",
+      "filename": "老王__白袍羽扇谋士__001.png",
+      "path": "assets/老王/老王__白袍羽扇谋士__001.png",
+      "url": "/assets/%E8%80%81%E7%8E%8B/%E8%80%81%E7%8E%8B__%E7%99%BD%E8%A2%8D%E7%BE%BD%E6%89%87%E8%B0%8B%E5%A3%AB__001.png",
+      "format": "PNG",
+      "bytes": 1830874
+    },
+    {
       "id": "assets/老王/老王__老王三视图__001.jpg",
       "owner": "老王",
       "name": "老王三视图",
@@ -36,6 +47,28 @@
       "url": "/assets/%E8%80%81%E7%8E%8B/%E8%80%81%E7%8E%8B__%E8%80%81%E7%8E%8B%E4%B8%89%E8%A7%86%E5%9B%BE__001.jpg",
       "format": "JPG",
       "bytes": 643730
+    },
+    {
+      "id": "assets/老王/老王__烈焰金瞳猿猴特写__001.png",
+      "owner": "老王",
+      "name": "烈焰金瞳猿猴特写",
+      "sequence": "001",
+      "filename": "老王__烈焰金瞳猿猴特写__001.png",
+      "path": "assets/老王/老王__烈焰金瞳猿猴特写__001.png",
+      "url": "/assets/%E8%80%81%E7%8E%8B/%E8%80%81%E7%8E%8B__%E7%83%88%E7%84%B0%E9%87%91%E7%9E%B3%E7%8C%BF%E7%8C%B4%E7%89%B9%E5%86%99__001.png",
+      "format": "PNG",
+      "bytes": 2012105
+    },
+    {
+      "id": "assets/老王/老王__秋山宫阙远眺__001.png",
+      "owner": "老王",
+      "name": "秋山宫阙远眺",
+      "sequence": "001",
+      "filename": "老王__秋山宫阙远眺__001.png",
+      "path": "assets/老王/老王__秋山宫阙远眺__001.png",
+      "url": "/assets/%E8%80%81%E7%8E%8B/%E8%80%81%E7%8E%8B__%E7%A7%8B%E5%B1%B1%E5%AE%AB%E9%98%99%E8%BF%9C%E7%9C%BA__001.png",
+      "format": "PNG",
+      "bytes": 2062730
     },
     {
       "id": "assets/驴哥/驴哥__驴哥三视图__001.jpg",
