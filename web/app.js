@@ -2,6 +2,8 @@ const $ = selector => document.querySelector(selector);
 let catalog = { members: [], images: [] };
 let owner = '';
 let view = 'grid';
+let category = 'three-view';
+const categoryNames = { 'three-view': '人物三视图', poster: '提示词海报' };
 const collator = new Intl.Collator('zh-CN', { numeric: true });
 const size = bytes => `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 function element(tag, className, text) {
@@ -15,14 +17,14 @@ function selectOwner(name) {
   $('#all-members').classList.toggle('active', !owner);
   document.querySelectorAll('.member-button').forEach(button => button.classList.toggle('active', button.dataset.owner === owner));
   $('#breadcrumb').textContent = owner || '全部图片';
-  $('#page-title').textContent = owner ? `${owner} 的图片分册` : '所有人的图片，\n收在一起。';
-  $('#page-description').textContent = owner ? '一个专属分册，收藏每一张值得留下的图片。' : '按成员整理的共享图片资产，让每一次查找都有迹可循。';
+  $('#page-title').textContent = owner ? `${owner} 的图片分册` : '人物三视图，\n灵感成海报。';
+  $('#page-description').textContent = owner ? '按类别浏览 TA 的人物三视图与提示词海报。' : '收藏人物的正面、侧面与背面，以及提示词生成的精彩海报。';
   render();
 }
 function preview(item) {
   $('#preview-owner').textContent = `${item.owner} / 图片预览`;
   $('#preview-title').textContent = item.name;
-  $('#preview-meta').textContent = `${item.format} · ${size(item.bytes)} · ${item.sequence || '未编号'}`;
+  $('#preview-meta').textContent = `${item.categoryLabel} · ${item.format} · ${size(item.bytes)} · ${item.sequence || '未编号'}`;
   $('#preview-path').textContent = item.path;
   $('#preview-image').src = item.url;
   $('#preview-image').alt = item.name;
@@ -33,10 +35,18 @@ function preview(item) {
 }
 function render() {
   const query = $('#search').value.trim().toLocaleLowerCase();
-  const images = catalog.images.filter(item => (!owner || item.owner === owner) && `${item.name} ${item.owner} ${item.filename}`.toLocaleLowerCase().includes(query));
+  const matching = catalog.images.filter(item => (!owner || item.owner === owner) && `${item.name} ${item.owner} ${item.filename}`.toLocaleLowerCase().includes(query));
+  for (const key of Object.keys(categoryNames)) {
+    const button = $(`#category-${key}`);
+    button.classList.toggle('selected', key === category);
+    button.setAttribute('aria-pressed', String(key === category));
+    button.querySelector('.category-count').textContent = matching.filter(item => item.category === key).length;
+  }
+  const images = matching.filter(item => item.category === category);
   images.sort((a, b) => ($('#sort').value === 'owner' ? collator.compare(a.owner, b.owner) : 0) || collator.compare(a.name, b.name) || collator.compare(a.filename, b.filename));
-  $('#result-count').textContent = `${owner || '全部收藏'} · ${images.length} 张图片`;
+  $('#result-count').textContent = `${owner || '全部成员'} / ${categoryNames[category]} · ${images.length} 张图片`;
   $('#empty').hidden = images.length > 0;
+  $('#empty-title').textContent = `没有符合条件的${categoryNames[category]}`;
   const gallery = $('#gallery');
   gallery.replaceChildren();
   gallery.className = view === 'grid' ? 'gallery' : 'catalog-table';
@@ -52,7 +62,7 @@ function render() {
       const nameCell = element('td');
       const button = element('button', 'table-preview', item.name);
       button.addEventListener('click', () => preview(item)); nameCell.append(button);
-      row.append(nameCell, element('td', '', item.owner), element('td', '', `${item.format} · ${size(item.bytes)}`), element('td', 'path-cell', item.path));
+      row.append(nameCell, element('td', '', item.owner), element('td', '', `${item.categoryLabel} · ${item.format} · ${size(item.bytes)}`), element('td', 'path-cell', item.path));
       body.append(row);
     }
     table.append(body); gallery.append(table); return;
@@ -95,6 +105,9 @@ async function load() {
     $('#error').textContent = '无法读取图片库。请确认本地服务正在运行，然后点击“刷新图片”重试。';
     $('#error').hidden = false;
   } finally { $('#refresh').disabled = false; }
+}
+for (const key of Object.keys(categoryNames)) {
+  $(`#category-${key}`).addEventListener('click', () => { category = key; render(); });
 }
 $('#all-members').addEventListener('click', () => selectOwner(''));
 $('#search').addEventListener('input', render);

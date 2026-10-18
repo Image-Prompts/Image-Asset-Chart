@@ -28,6 +28,8 @@
   "images": [
     {
       "id": "assets/老王/老王__老王三视图__001.jpg",
+      "category": "three-view",
+      "categoryLabel": "人物三视图",
       "owner": "老王",
       "name": "老王三视图",
       "sequence": "001",
@@ -39,6 +41,8 @@
     },
     {
       "id": "assets/驴哥/驴哥__驴哥三视图__001.jpg",
+      "category": "three-view",
+      "categoryLabel": "人物三视图",
       "owner": "驴哥",
       "name": "驴哥三视图",
       "sequence": "001",
@@ -50,6 +54,8 @@
     },
     {
       "id": "assets/毛球/毛球__毛球三视图__001.jpg",
+      "category": "three-view",
+      "categoryLabel": "人物三视图",
       "owner": "毛球",
       "name": "毛球三视图",
       "sequence": "001",
@@ -61,6 +67,8 @@
     },
     {
       "id": "assets/小缪/小缪__蓝裙女性角色设定__001.png",
+      "category": "three-view",
+      "categoryLabel": "人物三视图",
       "owner": "小缪",
       "name": "蓝裙女性角色设定",
       "sequence": "001",
@@ -72,6 +80,8 @@
     },
     {
       "id": "assets/小熊/小熊__黑帽小熊多视图__001.png",
+      "category": "three-view",
+      "categoryLabel": "人物三视图",
       "owner": "小熊",
       "name": "黑帽小熊多视图",
       "sequence": "001",
@@ -83,6 +93,8 @@
     },
     {
       "id": "assets/Fries/Fries__白衣月夜魔术师__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "白衣月夜魔术师",
       "sequence": "001",
@@ -94,6 +106,8 @@
     },
     {
       "id": "assets/Fries/Fries__黑金战袍角色设定__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "黑金战袍角色设定",
       "sequence": "001",
@@ -105,6 +119,8 @@
     },
     {
       "id": "assets/Fries/Fries__红袍少年金殿烈焰__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "红袍少年金殿烈焰",
       "sequence": "001",
@@ -116,6 +132,8 @@
     },
     {
       "id": "assets/Fries/Fries__红色激光少年战场__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "红色激光少年战场",
       "sequence": "001",
@@ -127,6 +145,8 @@
     },
     {
       "id": "assets/Fries/Fries__红色卫衣眼镜少年三视图__001.jpg",
+      "category": "three-view",
+      "categoryLabel": "人物三视图",
       "owner": "Fries",
       "name": "红色卫衣眼镜少年三视图",
       "sequence": "001",
@@ -138,6 +158,8 @@
     },
     {
       "id": "assets/Fries/Fries__红衣少年金龙对决__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "红衣少年金龙对决",
       "sequence": "001",
@@ -149,6 +171,8 @@
     },
     {
       "id": "assets/Fries/Fries__红衣少年烈焰法阵__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "红衣少年烈焰法阵",
       "sequence": "001",
@@ -160,6 +184,8 @@
     },
     {
       "id": "assets/Fries/Fries__红衣王座肖像__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "红衣王座肖像",
       "sequence": "001",
@@ -171,6 +197,8 @@
     },
     {
       "id": "assets/Fries/Fries__黄衣利爪少年战场__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "黄衣利爪少年战场",
       "sequence": "001",
@@ -182,6 +210,8 @@
     },
     {
       "id": "assets/Fries/Fries__绿焰铠甲法师__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "绿焰铠甲法师",
       "sequence": "001",
@@ -193,6 +223,8 @@
     },
     {
       "id": "assets/Fries/Fries__墨镜少年幽冥符阵__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "墨镜少年幽冥符阵",
       "sequence": "001",
@@ -204,6 +236,8 @@
     },
     {
       "id": "assets/Fries/Fries__天使恶魔双生__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "天使恶魔双生",
       "sequence": "001",
@@ -215,6 +249,8 @@
     },
     {
       "id": "assets/Fries/Fries__眼镜少年蝴蝶特写__001.png",
+      "category": "poster",
+      "categoryLabel": "提示词海报",
       "owner": "Fries",
       "name": "眼镜少年蝴蝶特写",
       "sequence": "001",
