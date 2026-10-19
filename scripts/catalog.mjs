@@ -1,12 +1,14 @@
-import { readdir, stat, mkdir, writeFile } from 'node:fs/promises';
+import { readdir, stat, mkdir, writeFile, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
 export const extensions = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.avif']);
+export const categories = { 'three-view': '人物三视图', poster: '提示词海报' };
 const collator = new Intl.Collator('zh-CN', { numeric: true });
 
 export async function scanAssets() {
+  const assignments = JSON.parse(await readFile(path.join(root, 'asset-categories.json'), 'utf8'));
   const base = path.join(root, 'assets');
   await mkdir(base, { recursive: true });
   const folders = (await readdir(base, { withFileTypes: true }))
@@ -20,11 +22,13 @@ export async function scanAssets() {
     members.push({ name: folder.name, count: files.length });
     for (const file of files) {
       const relative = `assets/${folder.name}/${file.name}`;
+      const category = assignments[relative];
+      if (!Object.hasOwn(categories, category)) throw new Error(`请在 asset-categories.json 中为 ${relative} 指定 three-view 或 poster 分类`);
       const info = await stat(path.join(root, relative));
       const stem = path.parse(file.name).name;
       const parts = stem.split('__');
       images.push({
-        id: relative, owner: folder.name, name: parts.length === 3 ? parts[1] : stem,
+        id: relative, category, categoryLabel: categories[category], owner: folder.name, name: parts.length === 3 ? parts[1] : stem,
         sequence: parts.length === 3 ? parts[2] : '', filename: file.name,
         path: relative, url: '/' + relative.split('/').map(encodeURIComponent).join('/'),
         format: path.extname(file.name).slice(1).toUpperCase(), bytes: info.size,
@@ -36,15 +40,15 @@ export async function scanAssets() {
 
 const cell = value => value.replaceAll('|', '\\|').replaceAll('\n', ' ');
 function table(images, prefix) {
-  return ['| 归属 | 图片名称 | 序号 | 文件路径 |', '| --- | --- | --- | --- |',
-    ...images.map(item => `| ${cell(item.owner)} | ${cell(item.name)} | ${item.sequence} | [${cell(item.filename)}](${prefix}${item.path.split('/').map(encodeURIComponent).join('/')}) |`)].join('\n');
+  return ['| 归属 | 类别 | 图片名称 | 序号 | 文件路径 |', '| --- | --- | --- | --- | --- |',
+    ...images.map(item => `| ${cell(item.owner)} | ${item.categoryLabel} | ${cell(item.name)} | ${item.sequence} | [${cell(item.filename)}](${prefix}${item.path.split('/').map(encodeURIComponent).join('/')}) |`)].join('\n');
 }
 
 export async function writeCatalogs() {
   const catalog = await scanAssets();
   await mkdir(path.join(root, 'catalog'), { recursive: true });
   await writeFile(path.join(root, 'catalog.json'), JSON.stringify(catalog, null, 2) + '\n');
-  await writeFile(path.join(root, 'CATALOG.md'), `# 图片资产总册\n\n由图片目录自动生成，请勿手工修改。执行 \`npm run catalog\` 更新；启动服务也会更新。\n\n共 ${catalog.members.length} 个成员，${catalog.images.length} 张图片。\n\n## 成员分册\n\n${catalog.members.map(member => `- [${member.name}](catalog/${encodeURIComponent(member.name)}.md)：${member.count} 张`).join('\n')}\n\n## 全部图片\n\n${table(catalog.images, '')}\n`);
+  await writeFile(path.join(root, 'CATALOG.md'), `# 人物三视图与海报总册\n\n由图片目录自动生成，请勿手工修改。执行 \`npm run catalog\` 更新；启动服务也会更新。\n\n共 ${catalog.members.length} 个成员，${catalog.images.length} 张图片。\n\n## 成员分册\n\n${catalog.members.map(member => `- [${member.name}](catalog/${encodeURIComponent(member.name)}.md)：${member.count} 张`).join('\n')}\n\n## 全部图片\n\n${table(catalog.images, '')}\n`);
   for (const member of catalog.members) {
     await writeFile(path.join(root, 'catalog', `${member.name}.md`), `# ${member.name} 的图片分册\n\n[返回总册](../CATALOG.md) · 共 ${member.count} 张图片\n\n由图片目录自动生成，请勿手工修改。\n\n${table(catalog.images.filter(item => item.owner === member.name), '../')}\n`);
   }
